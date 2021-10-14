@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>응응스크르 청주성화점</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+    #panorama {
+        margin-left: auto;
+        margin-right: auto;
+        width: 980px;
+
+        height: 460px;
+    }
+    </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+<script>
+
+var title = "응응스크르 청주성화점";
+
+pannellum.viewer('panorama', {   
+    "default": {
+        "firstScene": "circle",
+        "author": "충북 청주시 서원구 구룡산로 24 상가동 101호",
+        "sceneFadeDuration": 1000
+    },
+// 만약 버튼을 두개 이상 하고싶다면 hotspots []안에 배열처럼 {}추가하기 쉼표(,) 필수 
+    "scenes": {
+
+        "circle": {
+            "title": title, // 첫번째로 뜰 화면 방 이름 
+            "hfov": 110,
+            "pitch": 0,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/Qj53VEU.jpg",  //첫방 사진 링크 
+            "hotSpots": [
+                {
+                    "pitch": -20,
+                    "yaw": -60,
+                    "type": "scene",
+                    "text": "left", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "entrance" // 이 버튼을 통해 이동할 다음방 이름 
+                },
+                {
+                    "pitch": -20,
+                    "yaw":100,
+                    "type": "scene",
+                    "text": "right", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "room1_1" // 이 버튼을 통해 이동할 다음방 이름 
+                }      
+            ]
+        },
+
+        "room1_1": { //들어가서 첫번째 
+            "title": title, 
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 180,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/VSWhLbg.jpg",  
+            "hotSpots": [
+                {
+                    "pitch": -20,
+                    "yaw": 180,
+                    "type": "scene",
+                   // "text": "living room", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "room1_2", // 이 버튼을 통해 이동할 다음방 이름
+                    "targetYaw": 180,
+                    "targetPitch": 0
+                },
+                {
+                    "pitch": -15,
+                    "yaw": -20,
+                    "type": "scene",
+                   // "text": "living room", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "circle", // 이 버튼을 통해 이동할 다음방 이름 
+                    "targetYaw":0,
+                    "targetPitch": 0
+                }      
+            ]
+        },
+
+        "room1_2": { //들어가서 중앙 
+            "title": title, // 첫번째로 뜰 화면 방 이름 
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 200,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/sf3SHNw.jpg",  
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": 0,
+                    "type": "scene",
+                    //"text": "room", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "room1_1", // 이 버튼을 통해 이동할 다음방 이름 
+                    "targetYaw": 0,
+                    "targetPitch": 0
+                },
+                {
+                    "pitch": -20,
+                    "yaw": 180,
+                    "type": "scene",
+                   // "text": "living room", // 다음 방으로 이동할 버튼 위에 뜨는 정보 이름  
+                    "sceneId": "room1_3", // 이 버튼을 통해 이동할 다음방 이름 
+                    "targetYaw": 180,
+                    "targetPitch": 0
+                }      
+            ]
+        },
+        
+        "room1_3": { //들어가서 창가 
+            "title": title, // 첫번째로 뜰 화면 방 이름 
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 200,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/LZGF5Yh.jpg",  
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": 0,
+                    "type": "scene",
+                   // "text": "living room",
+                    "sceneId": "room1_2" ,
+                    "targetYaw": 0,
+                    "targetPitch": 0
+
+                }  
+            ]
+        },
+        "entrance": {
+            "title": title,
+            "hfov": 110,
+            "pitch": 0,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/qdGqFm9.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": 5,
+                    "type": "scene",
+                   // "text": "out",
+                    "sceneId": "entrance2"
+                 },
+                 {
+                    "pitch": -10,
+                    "yaw": 190,
+                    "type": "scene",
+                   // "text": "room1",
+                    "sceneId": "circle",
+                    "targetYaw": 0,
+                    "targetPitch": 0
+                 }
+            ]
+        },
+       "entrance2": {
+            "title": title,
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/q55o7E2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -20,
+                    "yaw": 180,
+                    "type": "scene",
+                    //"text": "room1",
+                    "sceneId": "entrance",
+                    "targetYaw": 180,
+                    "targetPitch": 0
+                },
+                {
+                    "pitch": -15,
+                    "yaw": 5,
+                    "type": "scene",
+                   // "text": "out",
+                    "sceneId": "out1",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        },
+           "out1": { //밖으로 나가기
+            "title": title, // 첫번째로 뜰 화면 방 이름 
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 200,
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/ZQ30bJX.jpg",  
+            "hotSpots": [
+                
+                {
+                    "pitch": -10,
+                    "yaw": 180,
+                    "type": "scene",
+                    //"text": "in",
+                    "sceneId": "entrance2" ,
+                    "targetYaw": 180,
+                    "targetPitch": 0
+                  
+                }   
+            ]
+        }
+    }
+});
+</script>
+
+
+</body>
+</html>
